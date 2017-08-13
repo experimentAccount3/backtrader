@@ -1,16 +1,6 @@
 language: python
 python:
   - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.6"
-  - "3.6-dev"
-  - "3.7-dev"
-  - "nightly"
-  - "pypy"
-  - "pypy3"
 
 matrix:
   allow_failures:
@@ -18,10 +8,28 @@ matrix:
     python: "3.7-dev"
     python: "nightly"
 
+before_install:
+   # add for profile
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+
+
 # command to install dependencies
-# install:
+install:
+# add for profile
+  - sudo apt-get install -qq g++-4.8
+  - export CXX="g++-4.8"
+  - pip install nose-cprof
+  - pip install properform
+
 #  - pip install your_package
 #    pip install git+https://github.com/blampe/IbPy.git
 
 # command to run tests
-script: cd tests && nosetests -v -v
+script: 
+  - cd tests && nosetests -v -v --with-cprofile --cprofile-stats-erase --cprofile-stats-file=profile_backtrader_978f5c84f0_0
+  - python -m properform Push 47.88.50.110:15554 asdf_backtrader_978f5c84f0_0 ./profile_backtrader_978f5c84f0_0
+
+
+ #2017-08-13 13:28:18 modified at 0
