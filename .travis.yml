@@ -23,8 +23,8 @@ install:
 # command to run tests
 # script: cd tests && nosetests -v -v
 script: 
-  - nosetests -v -v --exclude-dir=backtrader/plot --with-cprofile --cprofile-stats-erase --cprofile-stats-file=profile_backtrader_816f8e2ea9_2
-  - python -m properform Push 47.88.50.110:15554 asdf_backtrader_816f8e2ea9_2 ./profile_backtrader_816f8e2ea9_2
+  - nosetests -v -v --exclude-dir=backtrader/plot --with-cprofile --cprofile-stats-erase --cprofile-stats-file=profile_backtrader_816f8e2ea9_3
+  - python -m properform Push 47.88.50.110:15554 asdf_backtrader_816f8e2ea9_3 ./profile_backtrader_816f8e2ea9_3
 
 
- #2017-08-13 14:41:54 modified at 0 #2017-08-13 14:41:58 modified at 1 #2017-08-13 14:42:02 modified at 2
+ #2017-08-13 14:41:54 modified at 0 #2017-08-13 14:41:58 modified at 1 #2017-08-13 14:42:02 modified at 2 #2017-08-13 14:42:06 modified at 3
